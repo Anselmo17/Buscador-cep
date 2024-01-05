@@ -16,6 +16,8 @@ export class AppComponent {
   public cepFound!: Cep;
   input = new FormControl('');
 
+  public notFound = false;
+
   constructor(
     private http: HttpClient
   ) {
@@ -24,6 +26,14 @@ export class AppComponent {
       if (valor.length < 8) return;
 
       this.pesquisa(valor).subscribe(cep => {
+
+        this.notFound = false;
+        if (cep?.erro) {
+          let initVariable!: Cep;
+          this.cepFound = initVariable;
+          this.notFound = true;
+          return;
+        }
         this.cepFound = cep;
         console.log('----- cep retornado -------', this.cepFound);
       });

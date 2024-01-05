@@ -7,17 +7,21 @@
 
 
 <!-- zip code found -->
-
-<section *ngIf="this.cepFound">
-  <section>
-    <h3>Resultado do cep pesquisado {{cepFormated(this.input.value)}}</h3>
-  </section>
-
+<section  *ngIf="this.cepFound">
   <section>
     <div class="container-field">
       <p class="field">Localidade:</p>
       <p>{{this.cepFound?.localidade}}</p>
     </div>
   </section>
+</section>
 
+
+<section *ngIf="this.notFound">
+    <h3>Nenhum resultado encontrado!!!</h3>
+</section>
+
+
+<section *ngIf="this.cepFound">
+  <h3>Resultado do CEP pesquisado: {{cepFormated(this.input.value)}}</h3>
 </section>

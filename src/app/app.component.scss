@@ -7,8 +7,9 @@
     max-width: 1200px;
     background-color: rgb(139, 139, 202);
     border-radius: 8px;
-    // padding: 10px;
+    padding: 5px;
     display: flex;
+    height: 65px;
 }
 
 .container-field{
@@ -41,4 +42,8 @@
     border-radius: 15px; 
     margin-left: 5px;
     width: fit-content;
+  }
+
+  ::webkit-input-placeholder { /* Chrome/Opera/Safari */
+    font-size: 40px;
   }
