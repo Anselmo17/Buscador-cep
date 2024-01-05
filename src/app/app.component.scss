@@ -1,0 +1,44 @@
+
+.container{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 30px;
+    width: 96%;
+    max-width: 1200px;
+    background-color: rgb(139, 139, 202);
+    border-radius: 8px;
+    // padding: 10px;
+    display: flex;
+}
+
+.container-field{
+    padding: 15px;
+}
+
+.field{
+    font-size: 1.2rem;
+    font-weight: bolder;
+}
+
+.field-value{
+
+}
+
+.search{
+    display: flex;
+    flex: auto;
+    height: 20px;
+    margin-bottom: 30px;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+.input_caixa{
+    border: none;
+    outiline: none; 
+    maring-top: 30px;
+    padding: 4% 4%;
+    border-radius: 15px; 
+    margin-left: 5px;
+    width: fit-content;
+  }
