@@ -22,15 +22,17 @@ export class AppComponent {
     private http: HttpClient
   ) {
     this.input.valueChanges.subscribe(valor => {
-      console.log('-------valor--------', valor)
-      if (valor.length < 8) return;
+      let initVariable!: Cep;
+      this.cepFound = initVariable;
+
+      if (valor.length < 8) {
+        return;
+      }
 
       this.pesquisa(valor).subscribe(cep => {
 
         this.notFound = false;
         if (cep?.erro) {
-          let initVariable!: Cep;
-          this.cepFound = initVariable;
           this.notFound = true;
           return;
         }
@@ -59,6 +61,6 @@ export class AppComponent {
     const cepPart1 = cep.substring(0, 5);
     const cepPart2 = cep.substring(5);
 
-    return cepPart1 + '-' + cepPart2;
+    return cep ? cepPart1 + '-' + cepPart2 : '';
   }
 }

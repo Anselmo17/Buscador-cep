@@ -1,27 +1,41 @@
 <section class="container">
-  <div class="search">
-    <h2>Buscar Cep:</h2>
-    <input class="input_caixa" type="search" [formControl]="input" maxlength="8" (keypress)="isNumber($event)" />
-  </div>
-</section>
 
-
-<!-- zip code found -->
-<section  *ngIf="this.cepFound">
-  <section>
-    <div class="container-field">
-      <p class="field">Localidade:</p>
-      <p>{{this.cepFound?.localidade}}</p>
+  <section class="container-input">
+    <div class="search">
+      <h2>Pequisar Cep:</h2>
+      <input class="input_caixa" type="search" placeholder="Digite o Cep para pesquisa..." [formControl]="input"
+        maxlength="8" (keypress)="isNumber($event)" />
     </div>
   </section>
-</section>
 
 
-<section *ngIf="this.notFound">
-    <h3>Nenhum resultado encontrado!!!</h3>
-</section>
+
+  <!-- Text result -->
+  <section class="txt-result" *ngIf="this.cepFound">
+    <h3 *ngIf="!this.notFound && this.cepFound">CEP encontrado: {{cepFormated(this.input.value)}}</h3>
+    <h3 *ngIf="this.notFound">Nenhum resultado encontrado!!!</h3>
+  </section>
+
+  <!-- zip code found -->
+  <section *ngIf="this.cepFound">
+    <section>
+      <div class="container-field">
+        <div class="group-field">
+          <p class="field">Localidade:</p>
+          <p class="field-value">{{this.cepFound?.localidade}}{{this.cepFound?.uf ?'-':''}}{{this.cepFound?.uf}}</p>
+        </div>
+        <div class="group-field">
+          <p class="field">Endereço:</p>
+          <p class="field-value">{{this.cepFound?.logradouro}}</p>
+        </div>
+        <div class="group-field">
+          <p class="field">Bairro:</p>
+          <p class="field-value">{{this.cepFound?.bairro}}</p>
+        </div>
+
+      </div>
+    </section>
+  </section>
 
 
-<section *ngIf="this.cepFound">
-  <h3>Resultado do CEP pesquisado: {{cepFormated(this.input.value)}}</h3>
 </section>
