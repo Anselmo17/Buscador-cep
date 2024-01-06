@@ -17,6 +17,7 @@ export class AppComponent {
   input = new FormControl('');
 
   public notFound = false;
+  public loading = false;
 
   constructor(
     private http: HttpClient
@@ -29,15 +30,17 @@ export class AppComponent {
         return;
       }
 
+      this.loading = true;
+
       this.pesquisa(valor).subscribe(cep => {
 
         this.notFound = false;
+        this.loading = false;
         if (cep?.erro) {
           this.notFound = true;
           return;
         }
         this.cepFound = cep;
-        console.log('----- cep retornado -------', this.cepFound);
       });
     }
     );

@@ -68,6 +68,13 @@
     padding-left: 10px;
 }
 
+.align-container{
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+}
+
+/* Responsive */
 
 @media (max-width: 700px) {
     .container-field {
