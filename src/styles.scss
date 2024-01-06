@@ -1,4 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 body{
     background-color: #d1d1d1;
+    background-image: url('./assets/fundo.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100vh;
+    overflow-y: auto;
+    overflow-x: hidden;
 }
