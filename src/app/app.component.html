@@ -9,9 +9,8 @@
   </section>
 
 
-
   <!-- Text result -->
-  <section class="txt-result" *ngIf="this.cepFound">
+  <section class="txt-result" *ngIf="this.cepFound || this.notFound">
     <h3 *ngIf="!this.notFound && this.cepFound">CEP encontrado: {{cepFormated(this.input.value)}}</h3>
     <h3 *ngIf="this.notFound">Nenhum resultado encontrado!!!</h3>
   </section>
@@ -32,7 +31,6 @@
           <p class="field">Bairro:</p>
           <p class="field-value">{{this.cepFound?.bairro}}</p>
         </div>
-
       </div>
     </section>
   </section>
