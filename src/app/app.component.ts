@@ -28,13 +28,16 @@ export class AppComponent {
       let initVariable!: Cep;
       this.cepFound = initVariable;
 
-      if (valor.length < 8) {
+      let hasNumber = valor.replace(/\D/g,'');
+      this.search.value = hasNumber;
+
+      if (hasNumber.length < 8) {
         return;
       }
 
       this.loading = true;
 
-      this.pesquisa(valor).subscribe(cep => {
+      this.pesquisa(valor).subscribe((cep) => {
 
         this.notFound = false;
         this.loading = false;
@@ -42,7 +45,12 @@ export class AppComponent {
           this.notFound = true;
           return;
         }
-        this.cepFound = cep;
+        this.cepFound = cep,
+         (err:any) => {
+          console.log(err)
+          this.loading = false;
+          this.notFound = true;
+        };
       });
     }
     );
