@@ -60,6 +60,12 @@ export class AppComponent {
     return true;
   }
 
+  allowOnlyNumbers(event:any){
+    let txt = event.target.value;
+    let number = txt.replace(/\D/g,'');
+    return number;
+  }
+
   cepFormated(cep: string) {
     const cepPart1 = cep.substring(0, 5);
     const cepPart2 = cep.substring(5);

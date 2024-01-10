@@ -4,7 +4,7 @@
     <div class="search">
       <h2 class="title-search">Pequisar Cep:</h2>
       <input class="input_caixa" type="search" placeholder="Digite o Cep para pesquisa..." [formControl]="input"
-        maxlength="8" (keypress)="isNumber($event)" />
+        maxlength="8" (keypress)="isNumber($event)"  (keyup)="allowOnlyNumbers($event)"/>
     </div>
   </section>
 
