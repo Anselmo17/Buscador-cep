@@ -2,7 +2,7 @@
 
   <section class="container-input">
     <div class="search">
-      <h2>Pequisar Cep:</h2>
+      <h2 class="title-search">Pequisar Cep:</h2>
       <input class="input_caixa" type="search" placeholder="Digite o Cep para pesquisa..." [formControl]="input"
         maxlength="8" (keypress)="isNumber($event)" />
     </div>
@@ -12,7 +12,7 @@
   <!-- Text result -->
   <section class="txt-result" *ngIf="this.cepFound || this.notFound">
     <h3 *ngIf="!this.notFound && this.cepFound">CEP encontrado: {{cepFormated(this.input.value)}}</h3>
-    <h3 *ngIf="this.notFound">Nenhum resultado encontrado!!!</h3>
+    <h3 *ngIf="this.notFound">Nenhum CEP encontrado!!!</h3>
   </section>
 
   <!-- zip code found -->

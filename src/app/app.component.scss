@@ -61,6 +61,7 @@
     border-radius: 15px;
     padding-left: 15px;
     font-size: 1.8em;
+    width: 80%;
 }
 
 ::-webkit-input-placeholder {
@@ -73,6 +74,11 @@
     margin-top: 10px;
     display: flex;
     justify-content: center;
+}
+
+.title-search{
+
+    width: 18%;
 }
 
 /* Responsive */
@@ -89,5 +95,12 @@
 
     .input_caixa {
         font-size: 1.2em;
+    }
+}
+
+
+@media (max-width: 470px) {
+    .title-search{
+        font-size: 1em;
     }
 }
