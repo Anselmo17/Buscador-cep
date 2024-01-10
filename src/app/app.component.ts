@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { FormControl } from '@angular/forms';
 import {
   HttpClient
@@ -11,6 +11,8 @@ import { Cep } from './models/cep.model';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+
+  @ViewChild('search') search: any;
 
   public title = 'app-cep';
   public cepFound!: Cep;
@@ -63,7 +65,9 @@ export class AppComponent {
   allowOnlyNumbers(event:any){
     let txt = event.target.value;
     let number = txt.replace(/\D/g,'');
-    return number;
+    this.search.value = number;
+
+    console.log('-------------------', this.search.value);
   }
 
   cepFormated(cep: string) {
